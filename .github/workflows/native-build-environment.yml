@@ -25,4 +25,4 @@ jobs:
         with:
           push: true
           context: native-packages/scripts
-          tags: docker.pkg.github.com/${{ github.repository }}/native-packages-buildenv:latest
+          tags: docker.pkg.github.com/xeffyr/native-packages-buildenv:latest
