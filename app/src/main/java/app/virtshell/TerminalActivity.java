@@ -399,6 +399,9 @@ public final class TerminalActivity extends Activity implements ServiceConnectio
 	// Maximize CPU cores to 4
 	processArgs.addAll(Arrays.asList("-smp", "cpus=4,cores=4,threads=1,sockets=1"));
 
+	// VirtIO Ballooning
+	processArgs.addAll(Arrays.asList("-device", "virtio-balloon"));
+
         // Determine safe values for VM RAM allocation.
         ActivityManager am = (ActivityManager) appContext.getSystemService(Context.ACTIVITY_SERVICE);
         ActivityManager.MemoryInfo memInfo = new ActivityManager.MemoryInfo();
