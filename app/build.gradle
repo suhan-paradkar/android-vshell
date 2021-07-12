@@ -15,13 +15,18 @@ android {
         applicationId "app.virtshell"
         minSdkVersion 24
         targetSdkVersion 30
-        versionCode 6
-        versionName "1.6"
+        versionCode 7
+        versionName "1.7"
 
         archivesBaseName = "vshell-v$versionName"
 
-        ndk {
-            abiFilters 'x86', 'x86_64', 'armeabi-v7a', 'arm64-v8a'
+        splits {
+            abi {
+                enable true
+                reset()
+                include 'x86', 'x86_64', 'armeabi-v7a', 'arm64-v8a'
+                universalApk true
+            }
         }
     }
 
