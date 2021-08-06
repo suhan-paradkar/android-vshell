@@ -50,6 +50,32 @@ public class Config {
     public static final String QEMU_UPSTREAM_DNS = "1.1.1.1";
 
     /**
+     * Minimal RAM allocation in MiB which guarantees that guest OS will
+     * boot and work properly.
+     */
+    public static final int QEMU_MIN_SAFE_RAM = 256;
+
+    /**
+     * Max RAM allocation in MiB which is considered to be safe.
+     * Using 2047 MiB since this is max supported value of bundled
+     * 32 bit variants of QEMU (used on armv7l and i686 devices).
+     */
+    public static final int QEMU_MAX_SAFE_RAM = 2047;
+
+    /**
+     * Minimal size of TCG buffer in MiB that would not cause too many
+     * flushes of generated code cache and significant performance
+     * degradation.
+     */
+    public static final int QEMU_MIN_TCG_BUF = 64;
+
+    /**
+     * Maximal size in MiB of TCG buffer to prevent wasting of device
+     * memory by keeping unnecessary code caches.
+     */
+    public static final int QEMU_MAX_TCG_BUF = 512;
+
+    /**
      * A tag used for general logging.
      */
     public static final String APP_LOG_TAG = "virt-shell:app";
