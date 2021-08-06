@@ -395,6 +395,12 @@ public final class TerminalActivity extends Activity implements ServiceConnectio
         // Path to directory with firmware & keymap files.
         processArgs.addAll(Arrays.asList("-L", runtimeDataPath));
 
+	    // Maximize CPU cores to 4
+	    processArgs.addAll(Arrays.asList("-smp", "cpus=4,cores=4,threads=1,sockets=1"));
+
+	    // VirtIO Ballooning
+	    processArgs.addAll(Arrays.asList("-device", "virtio-balloon"));
+
         // Emulate CPU with max feature set.
         processArgs.addAll(Arrays.asList("-cpu", "max"));
 
